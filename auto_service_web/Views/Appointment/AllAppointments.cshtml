@@ -1,0 +1,105 @@
+﻿@model ServiceAutoFINAL.Models.ApViewModel
+
+@{
+    ViewData["Title"] = "AllAppointments";
+}
+
+<h1>AllAppointments</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+<form asp-controller="Appointment" asp-action="AllAppointmentsPost" method="post">
+    <p>
+
+        <select asp-for="FilterType">
+            <option value="All">All</option>
+            <option value="Client">Client</option>
+            <option value="Day">Day</option>
+            <option value="Between2Dates">Between2Dates</option>
+        </select>
+
+        Client/Day/Date Start <input type="text" asp-for="SearchString1" /> Date End
+        <input type="text" asp-for="SearchString2" />
+        <input type="submit" value="Filter" /> (please write the dates in the following format: yyyy-MM-dd)
+
+    </p>
+</form>
+
+<form asp-controller="Appointment" asp-action="Export" method="get">
+    <p>
+        <input type="submit" value="JSON" asp-for="expType" />
+    </p>
+</form>
+
+<form asp-controller="Appointment" asp-action="Export" method="get">
+    <p>
+        <input type="submit" value="CSV" asp-for="expType"/>
+    </p>
+</form>
+
+<form asp-controller="Appointment" asp-action="Export" method="get">
+    <p>
+        <input type="submit" value="XLS" asp-for="expType" />
+    </p>
+</form>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Appointments[0].client)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appointments[0].phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appointments[0].dateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appointments[0].car)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appointments[0].problem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Appointments[0].status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Appointments)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.client)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dateTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.car)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.problem)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.status)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.dateTime"> </a>
+                    @Html.ActionLink("Edit", "Edit", new { dateTime = item.dateTime })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

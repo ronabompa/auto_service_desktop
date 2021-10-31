@@ -1,0 +1,54 @@
+﻿@model ServiceAutoFINAL.Entities.Appointment
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Appointments</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.client)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.client)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.dateTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.dateTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.car)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.car)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.problem)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.problem)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.status)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.dateTime">Edit</a> |
+    <a asp-action="AllAppointments">Back to List</a>
+</div>

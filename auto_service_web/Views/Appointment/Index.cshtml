@@ -1,0 +1,66 @@
+﻿@model ServiceAutoFINAL.Models.ApViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <h1>Index</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Appointments[0].client)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Appointments[0].phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Appointments[0].dateTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Appointments[0].car)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Appointments[0].problem)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Appointments[0].status)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Appointments)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.client)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dateTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.car)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.problem)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.status)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.dateTime">Details</a> |
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>

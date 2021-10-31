@@ -1,0 +1,73 @@
+﻿@model ServiceAutoFINAL.Entities.Appointment
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Appointment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" name="dateTimeString" asp-for="dateTimeString" />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.client)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.client)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.phone)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.phone)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.dateTime)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.dateTime)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.car)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.car)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.problem)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.problem)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.status)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.status)
+                </dd>
+            </dl>
+            <div class="form-group">
+                <label asp-for="status" class="control-label"></label>
+                <input asp-for="status" class="form-control" />
+                <span asp-validation-for="status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Edit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="AllAppointments">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
